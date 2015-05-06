@@ -1,0 +1,9 @@
+dependencies:
+  pre:
+    - npm install -g bower
+  cache_directories:
+    - ~/nvm
+
+test:
+  override:
+    - grunt karma
