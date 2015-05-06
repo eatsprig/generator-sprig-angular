@@ -100,7 +100,7 @@ var Generator = module.exports = function Generator(args, options) {
         'skip-install': this.options['skip-install'],
         'base-path': '../',
         'coffee': this.options.coffee,
-        'travis': true,
+        'travis': false,
         'files-comments': bowerComments.join(','),
         'app-files': 'app/scripts/**/*.' + jsExt,
         'test-files': [
