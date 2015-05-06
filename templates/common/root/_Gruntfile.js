@@ -251,11 +251,11 @@ module.exports = function (grunt) {
               }
             }<% } %>
           }
-      }<% if (compass) { %>,
+      },
       sass: {
         src: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
-      }<% } %>
+      }
     }, <% if (typescript) { %>
     // Compiles TypeScript to JavaScript
     typescript: {
