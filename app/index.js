@@ -343,6 +343,12 @@ Generator.prototype.bootstrapFiles = function bootstrapFiles() {
     path.join('app', cssFile),
     path.join(this.appPath, cssFile)
   );
+
+  var resetFile = 'styles/_reset.scss';
+  this.copy(
+    path.join('app', resetFile),
+    path.join(this.appPath, resetFile)
+  );
 };
 
 Generator.prototype.appJs = function appJs() {
