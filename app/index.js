@@ -150,6 +150,21 @@ Generator.prototype.welcome = function welcome() {
   }
 };
 
+Generator.prototype.askForNeat = function askForNeat() {
+  var cb = this.async();
+
+  this.prompt([{
+    type: 'confirm',
+    name: 'neat',
+    message: 'Would you like to include Bourbon/Neat?',
+    default: true
+  }], function (props) {
+    this.neat = props.neat;
+
+    cb();
+  }.bind(this));
+};
+
 Generator.prototype.askForGulp = function askForGulp() {
   var cb = this.async();
 
