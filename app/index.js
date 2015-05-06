@@ -180,7 +180,7 @@ Generator.prototype.askForStyles = function askForStyles() {
   }, {
     type: 'confirm',
     name: 'compass',
-    message: 'Would you like to use Sass (with Compass)?',
+    message: 'Would you like to use Compass?',
     default: true,
     when: function () {
       return !gulp;
@@ -323,8 +323,7 @@ Generator.prototype.readIndex = function readIndex() {
 };
 
 Generator.prototype.bootstrapFiles = function bootstrapFiles() {
-  var sass = this.compass || this.sass;
-  var cssFile = 'styles/main.' + (sass ? 's' : '') + 'css';
+  var cssFile = 'styles/main.scss';
    this.copy(
     path.join('app', cssFile),
     path.join(this.appPath, cssFile)

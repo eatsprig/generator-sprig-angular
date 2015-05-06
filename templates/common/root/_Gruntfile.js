@@ -68,9 +68,9 @@ module.exports = function (grunt) {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'postcss:server']
       },<% } else { %>
-      styles: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
+      sass: {
+        files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['sass', 'newer:copy:styles', 'postcss']
       },<% } %>
       gruntfile: {
         files: ['Gruntfile.js']
@@ -345,6 +345,36 @@ module.exports = function (grunt) {
           sourcemap: true
         }
       }
+    },<% } else { %>
+
+    // Compiles Sass to CSS
+    sass: {
+      options: {
+        includePaths: [
+          'bower_components'
+        ]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: ['{,*/}*.{scss,sass}'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: ['{,*/}*.{scss,sass}'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }],
+        options: {
+          sourceComments: true
+        }
+      }
     },<% } %>
 
     // Renames files for browser caching purposes
@@ -540,19 +570,19 @@ module.exports = function (grunt) {
         'coffee:dist',<% } %><% if (typescript) { %>
         'typescript:base',<% } %><% if (compass) { %>
         'compass:server'<% } else { %>
-        'copy:styles'<% } %>
+        'sass:server'<% } %>
       ],
       test: [<% if (coffee) { %>
         'coffee',<% } %><% if (typescript) { %>
         'typescript',<% } %><% if (compass) { %>
         'compass'<% } else { %>
-        'copy:styles'<% } %>
+        'sass:dist'<% } %>
       ],
       dist: [<% if (coffee) { %>
         'coffee',<% } %><% if (typescript) { %>
         'typescript',<% } %><% if (compass) { %>
         'compass:dist',<% } else { %>
-        'copy:styles',<% } %>
+        'sass:dist',<% } %>
         'imagemin',
         'svgmin'
       ]
