@@ -651,6 +651,10 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
+  grunt.registerTask('lint', [
+    'newer:jshint'
+  ]);
+
   grunt.registerTask('default', [
     'newer:jshint',<% if (!coffee) { %>
     'newer:jscs',<% } %>

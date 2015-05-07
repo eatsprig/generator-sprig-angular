@@ -382,6 +382,8 @@ Generator.prototype.packageFiles = function packageFiles() {
   }
   this.template('root/README.md', 'README.md');
   this.template('root/circle.yml', 'circle.yml');
+  this.template('root/script/initialize-linting.sh', 'script/initialize-linting.sh');
+  this.template('root/script/git-hooks/pre-commit.sh', 'script/git-hooks/pre-commit.sh');
 
 };
 
