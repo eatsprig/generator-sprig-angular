@@ -112,6 +112,8 @@ var Generator = module.exports = function Generator(args, options) {
     });
 
     this.installDependencies({
+      bower: false,
+      npm: true,
       skipInstall: this.options['skip-install'],
       skipMessage: this.options['skip-message'],
       callback: this._injectDependencies.bind(this)
