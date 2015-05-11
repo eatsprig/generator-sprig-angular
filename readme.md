@@ -1,3 +1,5 @@
+This is a forked version of the [angular generator](https://github.com/yeoman/generator-angular) tailored specifically for Sprig. The easiest way to use it is to clone this repo, run `npm link`, and then run 'yo sprig-angular' to generate the app.
+
 # AngularJS generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-angular.svg?branch=master)](http://travis-ci.org/yeoman/generator-angular)
 
 > Yeoman generator for AngularJS - lets you quickly set up a project with sensible defaults and best practices.
