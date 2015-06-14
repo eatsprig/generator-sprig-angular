@@ -13,8 +13,8 @@
     "angular-route": "^<%= ngVer %>"<% } %><% if (sanitizeModule) { %>,
     "angular-sanitize": "^<%= ngVer %>"<% } %><% if (touchModule) { %>,
     "angular-touch": "^<%= ngVer %>"<% } %><% if (neat) { %>,
-    "bourbon": "4.2.2",
-    "neat": "1.7.2"<% } %>
+    "bourbon": "^4.2.3",
+    "neat": "^1.7.2"<% } %>
   },
   "devDependencies": {
     "angular-mocks": "^<%= ngVer %>"
