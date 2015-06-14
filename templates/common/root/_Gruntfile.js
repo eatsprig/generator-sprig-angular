@@ -597,6 +597,27 @@ module.exports = function (grunt) {
           %>',
         singleRun: true
       }
+    },
+
+    // Replace environment variables in index.html like api keys
+    'string-replace': {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/index.html': ['<%= yeoman.dist %>/index.html']
+        },
+        options: {
+          replacements: [
+            {
+              pattern: /BUGSNAG_API_KEY/gi,
+              replacement: process.env.BUGSNAG_API_KEY || ''
+            },
+            {
+              pattern: /GOOGLE_ANALYTICS_ID/gi,
+              replacement: process.env.GOOGLE_ANALYTICS_ID || ''
+            }
+          ]
+        }
+      }
     }
   });
 
@@ -643,6 +664,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'string-replace',
     'cdnify',
     'cssmin',
     'uglify',

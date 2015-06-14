@@ -51,6 +51,7 @@
     "grunt-ng-annotate": "^1.0.1",
     "grunt-postcss": "^0.5.5",<% if (!compass) { %>
     "grunt-sass": "^1.0.0",<% } %>
+    "grunt-string-replace": "^1.2.0",
     "grunt-svgmin": "^2.0.1",<% if (typescript) { %>
     "grunt-tsd": "^0.1.0",
     "grunt-typescript": "^0.8.0",<% } %>
