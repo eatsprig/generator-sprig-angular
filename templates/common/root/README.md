@@ -11,7 +11,7 @@ After generating this app, the following actions should be performed:
 ```
 chmod 755 script/initialize-linting.sh
 chmod 755 script/git-hooks/pre-commit.sh
-./scripts/initialize-linting.sh
+./script/initialize-linting.sh
 ```
 
 2. Setup CircleCI tests:
