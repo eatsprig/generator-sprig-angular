@@ -334,6 +334,21 @@ Generator.prototype.askForModules = function askForModules() {
   }.bind(this));
 };
 
+Generator.prototype.askForGoogleSignin = function askForGoogleSignin() {
+  var cb = this.async();
+
+  this.prompt([{
+    type: 'confirm',
+    name: 'googleSignin',
+    message: 'Would you like to use Google SignIn?',
+    default: true
+  }], function (props) {
+    this.googleSignin = props.googleSignin;
+
+    cb();
+  }.bind(this));
+};
+
 Generator.prototype.readIndex = function readIndex() {
   this.ngRoute = this.env.options.ngRoute;
   this.indexFile = this.engine(this.read('app/index.html'), this);
@@ -389,6 +404,16 @@ Generator.prototype.packageFiles = function packageFiles() {
   this.template('root/script/initialize-linting.sh', 'script/initialize-linting.sh');
   this.template('root/script/git-hooks/pre-commit.sh', 'script/git-hooks/pre-commit.sh');
 
+};
+
+Generator.prototype.loginFiles = function loginFiles() {
+  if (this.googleSignin) {
+    var loginFile = 'login.html';
+    this.copy(
+      path.join('app', loginFile),
+      path.join(this.appPath, loginFile)
+    );
+  }
 };
 
 Generator.prototype._injectDependencies = function _injectDependencies() {
