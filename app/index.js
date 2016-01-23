@@ -71,15 +71,15 @@ var Generator = module.exports = function Generator(args, options) {
     this.env.options.typescript = this.options.typescript;
   }
 
-  this.hookFor('angular:common', {
+  this.hookFor('sprig-angular:common', {
     args: args
   });
 
-  this.hookFor('angular:main', {
+  this.hookFor('sprig-angular:main', {
     args: args
   });
 
-  this.hookFor('angular:controller', {
+  this.hookFor('sprig-angular:controller', {
     args: args
   });
 
@@ -120,7 +120,7 @@ var Generator = module.exports = function Generator(args, options) {
     });
 
     if (this.env.options.ngRoute) {
-      this.invoke('angular:route', {
+      this.invoke('sprig-angular:route', {
         args: ['about']
       });
     }
