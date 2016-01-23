@@ -603,7 +603,7 @@ module.exports = function (grunt) {
     'string-replace': {
       dist: {
         files: {
-          '<%= yeoman.dist %>/index.html': ['<%= yeoman.dist %>/index.html']
+          '<%%= yeoman.dist %>/index.html': ['<%%= yeoman.dist %>/index.html']
         },
         options: {
           replacements: [
