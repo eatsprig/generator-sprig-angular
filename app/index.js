@@ -71,6 +71,12 @@ var Generator = module.exports = function Generator(args, options) {
     this.env.options.typescript = this.options.typescript;
   }
 
+  this.gulp = false;
+  this.sass = false;
+  this.compass = false;
+  this.bootstrap = false;
+  this.compassBootstrap = false;
+
   this.hookFor('sprig-angular:common', {
     args: args
   });
@@ -167,7 +173,7 @@ Generator.prototype.askForNeat = function askForNeat() {
   }.bind(this));
 };
 
-Generator.prototype.askForGulp = function askForGulp() {
+Generator.prototype._askForGulp = function _askForGulp() {
   var cb = this.async();
 
   this.prompt([{
@@ -182,7 +188,7 @@ Generator.prototype.askForGulp = function askForGulp() {
   }.bind(this));
 };
 
-Generator.prototype.askForStyles = function askForStyles() {
+Generator.prototype._askForStyles = function _askForStyles() {
   var gulp = this.gulp;
   var cb = this.async();
 
@@ -210,7 +216,7 @@ Generator.prototype.askForStyles = function askForStyles() {
   }.bind(this));
 };
 
-Generator.prototype.askForBootstrap = function askForBootstrap() {
+Generator.prototype._askForBootstrap = function _askForBootstrap() {
   var compass = this.compass;
   var gulp = this.gulp;
   var cb = this.async();
